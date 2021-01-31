@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+<body>
+    이것은 테스트 111
+    <div class="title">
+
+    </div>
+    
+</body>
+<script>
+
+$.ajax({
+    url: "/get-stock",
+    type: "GET",
+    success: function(data){
+        data['etfItemList'].map((i)=>{
+            console.log(i.itemname)
+            $(".title").append("<li>" + i.itemname + " 현재가치 : " + i.nowVal + "</li>");
+        })
+    },
+    error: function (request, status, error){
+    }
+});
+
+</script>
+
+
+
+</html>
